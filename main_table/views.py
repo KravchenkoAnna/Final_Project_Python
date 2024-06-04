@@ -1,12 +1,10 @@
-from django.core.exceptions import ValidationError
 from django.shortcuts import render
-from django.http import HttpResponse
 from .forms import ConcertFilterForm
 from .models import Concerts
 from bs4 import BeautifulSoup
 import re
 import requests
-
+from django.contrib import messages
 
 # Create your views here.
 def the_table(request):
@@ -17,6 +15,7 @@ def the_table(request):
     reset_filters = request.GET.get('reset_filters', None) # посмотреть что делает этот метод
     concerts = Concerts.objects.all()
     my_form = ConcertFilterForm(request.GET)
+
 
     if reset_filters:
         concerts = Concerts.objects.all()
