@@ -1,0 +1,184 @@
+*{
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+    font-family: "Book Antiqua", sans-serif;
+    font-size: large;
+}
+
+body{
+    min-height: 100vh;
+    background: url(andrea-bocelli.jpg) center / cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form_section {
+    margin: 1px;
+    padding: 10px;
+    border-radius: 8px;
+    width: 100%;
+    align-items: center;
+}
+
+.form_heading {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    font-weight: bolder;
+}
+
+.filter_form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form_row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: #fff4 !important;
+    box-shadow: 0 .4rem .8rem #0005;
+    border-radius: .8rem;
+}
+
+.form_row label {
+    margin-right: 5px;
+}
+
+.form_row input[type="text"],
+.form_row input[type="number"],
+.form_row input[type="time"],
+.form_row select {
+    width: 180px;
+    padding: 6px;
+    font-size: 14px;
+    line-height: 1.2;
+    height: 30px;
+    border-radius: 8px;
+    background-color: transparent;
+    border: 2px solid white;
+    color: #333;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.form_row input[type="text"]:focus,
+.form_row input[type="number"]:focus,
+.form_row input[type="time"]:focus,
+.form_row select:focus {
+    outline: none;
+    border-color: #666;
+}
+
+.button_container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    background-color: transparent !important;
+}
+
+.filter_form button, .reset_button {
+    padding: 10px 20px;
+    border-radius: .8rem;
+    background-color: #d5d1defe;
+    color: black;
+    font-weight: bolder;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    max-width: 120px;
+    max-height: 45px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+}
+
+.reset_button:hover, .filter_form button:hover {
+    background-color: #b0aeca;
+}
+
+
+main.table{
+    width: 90vw;/*82vw*/
+    height: 95vh;
+    background-color: #fff5;
+    backdrop-filter: blur(7px);
+    box-shadow: 0 .4rem .8rem #0005;
+    border-radius: .8rem;
+    overflow: hidden;
+}
+.table__header{
+    width: 95%;
+    height: 7%;
+    background-color: #fff4;
+    padding-top: .4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 .4rem .8rem #0005;
+    border-radius: .8rem;
+    margin: auto;
+}
+.table__body{
+    width: 95%;
+    max-height: calc(59% - 1.6rem);
+    background: #fffb;
+    margin: .8rem auto;
+    border-radius: .6rem;
+    overflow: scroll;
+}
+.table__body::-webkit-scrollbar{
+    width: 12px;
+    height: 0.5rem;
+}
+
+.table__body::-webkit-scrollbar-thumb{
+    border-radius: .5rem;
+    background-color: #0004;
+    visibility: hidden;
+}
+
+.table__body:hover::-webkit-scrollbar-thumb{
+    visibility: visible;
+}
+
+table, th, td{
+    border-collapse: collapse;
+    padding: 1rem;
+    text-align: left;
+}
+
+thead th{
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #d5d1defe;
+    cursor: pointer;
+    text-transform: capitalize;
+    font-size: larger;
+    font-weight: bolder;
+}
+table {
+    width: 100%;
+    min-height: 50px;
+}
+tbody tr:nth-child(even) {
+    background-color: #0000000b;
+}
+tbody tr:hover {
+      background-color: rgba(255, 255, 255, 0.8) !important;
+}
+@media (max-width: 1000px) {
+    td:not(:first-of-type) {
+        min-width: 12.1rem;
+    }
+}
+
+
+
+

@@ -1,0 +1,74 @@
+{% extends 'main_table/base_template.html' %}
+
+{% block title %} Main Table{% endblock %}
+{% block main_content %}
+<main class="table">
+
+     <section class="form_section">
+        <h2 class="form_heading">Filter Form</h2>
+        <form method="get" class="filter_form">
+            {% csrf_token %}
+            <div class="form_row">
+                <label for="id_country">Country</label>
+                {{ my_form.county }}
+                <label for="id_city">City</label>
+                {{ my_form.city }}
+                <label for="id_month">Month</label>
+                {{ my_form.month }}
+                <label for="id_day_number">Number of the day</label>
+                {{ my_form.day_number }}
+            </div>
+            <div class="form_row">
+                <label for="id_week_day">Day of week</label>
+                {{ my_form.week_day }}
+                <label for="id_year">Year</label>
+                {{ my_form.year }}
+                <label for="id_address">Address of the Concert</label>
+                {{ my_form.address }}
+                <label for="id_exact_time">Time</label>
+                {{ my_form.exact_time }}
+            </div>
+            <div class="button_container">
+                <button type="submit">Filter</button>
+                <a href="{% url 'home' %}?reset_filters=true" class="reset_button">See all</a>
+            </div>
+        </form>
+
+    </section>
+        <section class="table__header">
+            <h2>Concerts</h2>
+        </section>
+        <section class="table__body">
+            <table>
+                <thead>
+                <tr>
+                    <th>Country</th>
+                    <th>City</th>
+                    <th>Month</th>
+                    <th>Week day</th>
+                    <th>Day Number</th>
+                    <th>Year</th>
+                    <th>Address</th>
+                    <th>Time</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for element in concerts %}
+                    <tr>
+                       <td>{{ element.county }}</td>
+                       <td>{{ element.city }}</td>
+                       <td>{{ element.month }}</td>
+                       <td>{{ element.week_day }}</td>
+                       <td>{{ element.day_number }}</td>
+                       <td>{{ element.year }}</td>
+                       <td>{{ element.address }}</td>
+                       <td>{{ element.exact_time }}</td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </section>
+    </main>
+{% endblock %}
+
