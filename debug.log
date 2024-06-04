@@ -1,9 +1,0 @@
-Watching for file changes with StatReloader
-"GET / HTTP/1.1" 200 13841
-"GET /static/main_table/css/table.css HTTP/1.1" 304 0
-Not Found: /favicon.ico
-"GET /favicon.ico HTTP/1.1" 404 2405
-"GET /?csrfmiddlewaretoken=LfEBLDQu2sSUBoq0iiW6kFrpEXiI4DBBB3C1EnEHBzlo8XwkKJkBAihqy1ENirip&county=&city=&month=December&day_number=&week_day=&year=&address=&exact_time= HTTP/1.1" 200 6544
-Watching for file changes with StatReloader
-"GET / HTTP/1.1" 200 13841
-"GET /?csrfmiddlewaretoken=yn7jXM3ZcqdxvKYLMN6UBy8udeSF9vLGob5JQwRcLxG12j45eeupRbYv7ieKnjsu&county=&city=&month=&day_number=&week_day=Sunday&year=&address=&exact_time= HTTP/1.1" 200 4995
