@@ -4,18 +4,16 @@ from .models import Concerts
 from bs4 import BeautifulSoup
 import re
 import requests
-from django.contrib import messages
 
-# Create your views here.
+
 def the_table(request):
 
     if not Concerts.objects.exists():
         add_concerts()
 
-    reset_filters = request.GET.get('reset_filters', None) # посмотреть что делает этот метод
+    reset_filters = request.GET.get('reset_filters', None)
     concerts = Concerts.objects.all()
     my_form = ConcertFilterForm(request.GET)
-
 
     if reset_filters:
         concerts = Concerts.objects.all()
@@ -52,12 +50,12 @@ def add_concerts():
             day_week = date_time_info[0]
             month_day_year = date_time_info[1].split()
             month = month_day_year[0]
-            day_number = int(re.search(r'\d+', month_day_year[1]).group()) # напомнить что делает груп и почему именно такой шаблон
+            day_number = int(re.search(r'\d+', month_day_year[1]).group())
             year = int(month_day_year[2])
             time_12hr = date_time_info[2]
             exact_time = re.sub(r'(\d{2}):(\d{2})\s*(am|pm)',
                                 lambda x: f"{int(x.group(1)) % 12 + (12 if x.group(3) == 'pm' else 0)}:{x.group(2)}:00",
-                                time_12hr) # про эту строчку тоже напомнить
+                                time_12hr)
             address = lines[1].strip()
             city_country = [x.strip() for x in re.split(r',|.', lines[2])]
             city = city_country[0]
