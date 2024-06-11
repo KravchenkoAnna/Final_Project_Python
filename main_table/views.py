@@ -18,18 +18,18 @@ def the_table(request):
     if reset_filters:
         concerts = Concerts.objects.all()
     else:
-        filter_kwargs = {}
+        filter_keyargs = {}
         for field in ['county', 'city', 'month', 'week_day', 'day_number', 'year', 'address', 'exact_time']:
             value = request.GET.get(field)
             if value:
                 if field in ['day_number']:
-                    filter_kwargs[f"{field}"] = value
+                    filter_keyargs[f"{field}"] = value
                 elif field in ['exact_time']:
-                    filter_kwargs[f"{field}__exact"] = value
+                    filter_keyargs[f"{field}__exact"] = value
                 else:
-                    filter_kwargs[f"{field}__icontains"] = value
+                    filter_keyargs[f"{field}__icontains"] = value
 
-        concerts = concerts.filter(**filter_kwargs)
+        concerts = concerts.filter(**filter_keyargs)
 
     return render(request, 'main_table/table_template.html',
                   {'concerts': concerts, 'my_form': my_form})
